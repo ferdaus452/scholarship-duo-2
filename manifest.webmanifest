@@ -1,0 +1,9 @@
+{
+  "name": "Scholarship Duo - Ferdaus & Nasrin",
+  "short_name": "Scholarship Duo",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f3f6fb",
+  "theme_color": "#173b68",
+  "description": "Personal scholarship profiles, deadlines and application tracker."
+}

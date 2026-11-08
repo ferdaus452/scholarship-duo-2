@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#173b68">
+<meta name="description" content="Ferdaus and Nasrin's personal scholarship dashboard">
+<link rel="manifest" href="manifest.webmanifest">
+<title>Scholarship Duo</title>
+<style>
+:root{--bg:#f3f6fb;--ink:#172033;--muted:#64748b;--line:#e2e8f0;--blue:#173b68;--blue2:#2563eb;--pink:#be185d;--pink2:#ec4899;--green:#15803d;--amber:#a16207;--red:#b91c1c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:system-ui,-apple-system,"Noto Sans Bengali",sans-serif;color:var(--ink)}
+header{color:white;padding:22px 17px 19px;background:linear-gradient(135deg,var(--blue),#2864a5);border-radius:0 0 23px 23px}
+header.nasrin{background:linear-gradient(135deg,#9d174d,#ec4899)}
+.headrow{display:flex;align-items:center;justify-content:space-between;gap:8px}h1{font-size:23px;margin:0}.subhead{font-size:12px;color:#e7efff;margin:7px 0 0}.nasrin .subhead{color:#ffe4ef}
+main{max-width:780px;margin:auto;padding:14px}.nav{display:flex;gap:7px;overflow:auto;padding:3px 0 12px}.tab{white-space:nowrap;border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:12px;padding:10px 13px;font-weight:700}.tab.active{background:var(--blue);border-color:var(--blue);color:white}.tab[data-tab="nasrin"].active{background:var(--pink);border-color:var(--pink)}
+.panel{display:none}.panel.active{display:block}.card{background:white;border:1px solid var(--line);border-radius:17px;padding:15px;margin-bottom:12px;box-shadow:0 3px 12px #1e3a5f08}
+.cardhead{display:flex;justify-content:space-between;align-items:flex-start;gap:9px}.card h2{font-size:18px;margin:0 0 4px}.muted{font-size:12px;color:var(--muted)}
+.tag{font-size:11px;font-weight:750;border-radius:99px;padding:5px 9px;background:#e8f7ef;color:var(--green);white-space:nowrap}.tag.warn{background:#fff4dc;color:var(--amber)}.tag.pink{background:#fce7f3;color:#9d174d}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:13px}.field{background:#f7f9fc;padding:10px;border-radius:11px;min-width:0}.field small{display:block;color:var(--muted);font-size:11px}.field b{display:block;font-size:13px;margin-top:3px;overflow-wrap:anywhere}
+h3{font-size:15px;margin:0 0 9px}.note{font-size:12px;line-height:1.6;color:#526176;background:#f7f9fc;padding:11px;border-radius:11px;margin-top:12px}
+button,.btn{border:0;border-radius:10px;padding:10px 13px;font-weight:700;background:var(--blue);color:white;font-size:13px;text-decoration:none;display:inline-block;cursor:pointer}.pinkbtn{background:var(--pink)}.light{background:#eaf0f8;color:var(--blue)}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}
+input,textarea,select{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px;font:inherit;font-size:14px;background:white;margin:5px 0 10px;color:var(--ink)}textarea{min-height:60px}label{font-size:12px;font-weight:700;color:#475569}
+.scholar{border-top:1px solid var(--line);padding-top:12px;margin-top:12px}.scholar:first-of-type{border:0;margin-top:0;padding-top:0}.scholar h4{margin:0 0 5px;font-size:14px}.scholar p{font-size:12px;line-height:1.5;color:#526176;margin:5px 0}.status{font-size:11px;font-weight:700;color:var(--amber)}
+table{width:100%;border-collapse:collapse;font-size:12px}td,th{text-align:left;border-bottom:1px solid var(--line);padding:9px 5px;vertical-align:top}th{color:var(--muted)}
+.month{font-weight:800;color:var(--blue);font-size:18px}.daylist{display:grid;gap:8px;margin-top:10px}.event{background:#f7f9fc;border-radius:10px;padding:10px;font-size:12px}.event b{display:block}.empty{font-size:12px;color:var(--muted);padding:12px;background:#f8fafc;border-radius:10px}
+footer{text-align:center;font-size:11px;color:var(--muted);padding:10px 15px 25px}
+@media(min-width:600px){.grid{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<header id="hero">
+ <div class="headrow"><h1>🎓 Scholarship Duo</h1><span class="tag" style="background:#ffffff24;color:white">PERSONAL DASHBOARD</span></div>
+ <p class="subhead">Ferdaus ও Nasrin-এর Scholarship, Deadline ও Application Tracker</p>
+</header>
+<main>
+ <nav class="nav">
+  <button class="tab active" data-tab="ferdaus">Ferdaus's Profile</button>
+  <button class="tab" data-tab="nasrin">Nasrin's Profile</button>
+  <button class="tab" data-tab="calendar">Deadline Calendar</button>
+  <button class="tab" data-tab="tracker">Applications</button>
+  <button class="tab" data-tab="manage">Add / Settings</button>
+ </nav>
+
+ <section class="panel active" id="ferdaus">
+  <div class="card">
+   <div class="cardhead"><div><h2>Ferdaus's Profile</h2><div class="muted">BPT student · Scholarship profile</div></div><span class="tag warn">Eligibility checks needed</span></div>
+   <div class="grid">
+    <div class="field"><small>Course / Year</small><b>BPT · 1st Year</b></div><div class="field"><small>University</small><b>Kazi Nazrul University</b></div>
+    <div class="field"><small>HS Marks</small><b>70.8%</b></div><div class="field"><small>HS Passing Year</small><b>2023</b></div>
+    <div class="field"><small>Academic Gap</small><b>3 years</b></div><div class="field"><small>Annual Family Income</small><b>₹1,20,000</b></div>
+    <div class="field"><small>Gender</small><b>Male</b></div><div class="field"><small>State</small><b>West Bengal</b></div>
+    <div class="field"><small>College</small><b id="fcollege">Not added yet</b></div>
+   </div>
+   <div class="note">স্কলারশিপের যোগ্যতা নির্ধারণে BPT course acceptance, college recognition এবং ৩ বছরের gap-এর নিয়ম আলাদাভাবে যাচাই করতে হবে।</div>
+  </div>
+  <div class="card"><h3>Ferdaus-এর Scholarship shortlist</h3><div id="ferdausList"></div></div>
+ </section>
+
+ <section class="panel" id="nasrin">
+  <div class="card">
+   <div class="cardhead"><div><h2>Nasrin's Profile 💗</h2><div class="muted">B.Sc Nursing · Scholarship profile</div></div><span class="tag pink">SVMCM recipient</span></div>
+   <div class="grid">
+    <div class="field"><small>Course / Year</small><b>B.Sc Nursing · 1st Year</b></div><div class="field"><small>December 2026</small><b>Expected 2nd Year</b></div>
+    <div class="field"><small>College</small><b id="ncollege">Government Medical College</b></div><div class="field"><small>Category</small><b>OBC</b></div>
+    <div class="field"><small>Annual Family Income</small><b>₹1,20,000</b></div><div class="field"><small>Gender</small><b>Female</b></div>
+    <div class="field"><small>Current Scholarship</small><b>SVMCM</b></div>
+   </div>
+   <div class="note">Nasrin-এর ক্ষেত্রে নতুন scholarship নেওয়ার আগে SVMCM-এর নিয়মে একসঙ্গে অন্য scholarship নেওয়া নিষিদ্ধ কি না যাচাই করতে হবে।</div>
+  </div>
+  <div class="card"><h3>Nasrin-এর Scholarship shortlist</h3><div id="nasrinList"></div></div>
+ </section>
+
+ <section class="panel" id="calendar">
+  <div class="card">
+   <div class="cardhead"><div><h2>Scholarship Deadline Calendar</h2><div class="muted">তোমাদের যোগ করা deadline এখানে দেখা যাবে</div></div><span class="tag">Calendar</span></div>
+   <div class="month" id="monthTitle"></div><div class="daylist" id="events"></div>
+   <div class="note">নতুন scholarship-এর deadline যোগ করতে “Add / Settings” ট্যাব ব্যবহার করো। Calendar নিজে থেকে internet থেকে deadline সংগ্রহ করে না।</div>
+  </div>
+ </section>
+
+ <section class="panel" id="tracker">
+  <div class="card">
+   <h2>Application Status Tracker</h2><p class="muted">আবেদন শুরু থেকে টাকা পাওয়া পর্যন্ত status রাখো।</p>
+   <div id="applicationRows"></div>
+   <div class="note">Status বদলালে এই browser-এ সংরক্ষিত হবে। দুজনের ফোনে একই তথ্য রাখতে Export করে অন্য ফোনে Import করতে হবে।</div>
+  </div>
+ </section>
+
+ <section class="panel" id="manage">
+  <div class="card">
+   <h2>Add Scholarship / Deadline</h2>
+   <label>কার জন্য?</label><select id="who"><option value="Ferdaus">Ferdaus</option><option value="Nasrin">Nasrin</option><option value="Both">Both</option></select>
+   <label>Scholarship-এর নাম</label><input id="sname" placeholder="যেমন: XYZ Foundation Scholarship">
+   <label>শেষ তারিখ</label><input id="sdate" type="date">
+   <label>Apply Now link (official URL)</label><input id="surl" type="url" placeholder="https://...">
+   <label>সম্ভাব্য amount</label><input id="samount" placeholder="যেমন ₹20,000">
+   <label>Eligibility / Notes</label><textarea id="snote" placeholder="কোর্স, income limit, gap rule, documents..."></textarea>
+   <button onclick="addScholarship()">Save Scholarship</button>
+  </div>
+  <div class="card">
+   <h3>Notification Settings</h3>
+   <p class="muted">Deadline reminder-এর জন্য browser notification চালু করো। এই reminder কাজ করার জন্য website-টি HTTPS-এ host করা এবং browser permission দেওয়া প্রয়োজন। App/browser বন্ধ থাকলে নির্ভরযোগ্য push notification-এর জন্য server push service দরকার।</p>
+   <div class="actions"><button onclick="enableNotifications()">Enable Notifications</button><button class="light" onclick="testNotification()">Test Notification</button></div>
+   <p id="notifyState" class="muted" aria-live="polite"></p>
+  </div>
+  <div class="card">
+   <h3>দুজনের ফোনে একই তথ্য Share</h3>
+   <p class="muted">এই demo version-এ data একই cloud-এ sync হয় না। Export করে Nasrin-কে পাঠাও; সে নিজের ফোনে Import করবে। এরপর পরিবর্তন হলে আবার export/import করতে হবে।</p>
+   <div class="actions"><button onclick="exportData()">Export Data</button><label class="btn light" for="importFile">Import Data</label><input id="importFile" type="file" accept="application/json" style="display:none" onchange="importData(event)"></div>
+  </div>
+ </section>
+</main>
+<footer>Scholarship Duo · Personal tracker · Password, OTP বা bank details এখানে সংরক্ষণ করবে না।</footer>
+<script>
+const KEY='scholarshipDuoV2';
+const initial=[
+ {id:'hdfc-f',who:'Ferdaus',name:'HDFC Parivartan ECSS',date:'2026-12-15',url:'https://www.parivartanecss.com/',amount:'Up to ₹50,000',note:'BPT course, college recognition ও 3-year gap লিখিতভাবে নিশ্চিত করতে হবে; deadline official portal-এ পুনরায় যাচাই করো.',status:'Not checked'},
+ {id:'svmcm-n',who:'Nasrin',name:'SVMCM (existing)',date:'',url:'https://svmcm.wb.gov.in/',amount:'Already receiving',note:'Existing scholarship. নতুন scholarship-এর সঙ্গে একসঙ্গে নেওয়ার নিয়ম যাচাই করো.',status:'Received'},
+ {id:'oasis-n',who:'Nasrin',name:'OASIS Post-Matric OBC',date:'',url:'https://oasis.wb.gov.in/',amount:'To be verified',note:'₹1.2 lakh income current ceiling-এর মধ্যে পড়ে কি না এবং B.Sc Nursing eligibility যাচাই করো.',status:'Eligibility check'}
+];
+let data={items:initial,extra:{fcollege:'',ncollege:'Government Medical College'}};
+try{const saved=JSON.parse(localStorage.getItem(KEY)||'null');if(saved&&Array.isArray(saved.items))data=saved}catch(e){}
+function persist(){localStorage.setItem(KEY,JSON.stringify(data));render()}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+const tabs=[...document.querySelectorAll('.tab')],panels=[...document.querySelectorAll('.panel')];
+tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('active'));panels.forEach(x=>x.classList.remove('active'));t.classList.add('active');document.getElementById(t.dataset.tab).classList.add('active');document.getElementById('hero').classList.toggle('nasrin',t.dataset.tab==='nasrin')}));
+function cardItem(x){let link=x.url?`<a class="btn" href="${esc(x.url)}" target="_blank" rel="noopener">Apply / Official link ↗</a>`:'';return `<div class="scholar"><h4>${esc(x.name)}</h4><p><b>Deadline:</b> ${x.date?esc(x.date):'Not confirmed'} · <b>Amount:</b> ${esc(x.amount||'Not stated')}</p><p>${esc(x.note||'')}</p><p class="status">Status: ${esc(x.status||'Not checked')}</p>${link}</div>`}
+function render(){
+ document.getElementById('fcollege').textContent=data.extra.fcollege||'Not added yet';
+ document.getElementById('ncollege').textContent=data.extra.ncollege||'Government Medical College';
+ document.getElementById('ferdausList').innerHTML=data.items.filter(x=>x.who==='Ferdaus'||x.who==='Both').map(cardItem).join('')||'<div class="empty">এখনও কিছু যোগ করা হয়নি।</div>';
+ document.getElementById('nasrinList').innerHTML=data.items.filter(x=>x.who==='Nasrin'||x.who==='Both').map(cardItem).join('')||'<div class="empty">এখনও কিছু যোগ করা হয়নি।</div>';
+ const now=new Date();document.getElementById('monthTitle').textContent=now.toLocaleDateString('en-IN',{month:'long',year:'numeric'});
+ const ev=data.items.filter(x=>x.date).sort((a,b)=>a.date.localeCompare(b.date));
+ document.getElementById('events').innerHTML=ev.length?ev.map(x=>`<div class="event"><b>${esc(x.date)} · ${esc(x.name)}</b>${esc(x.who)} · ${esc(x.status||'Not checked')}</div>`).join(''):'<div class="empty">কোনো deadline যোগ করা হয়নি।</div>';
+ document.getElementById('applicationRows').innerHTML=data.items.map(x=>`<div class="scholar"><h4>${esc(x.who)} · ${esc(x.name)}</h4><label>Application status</label><select onchange="setStatus('${esc(x.id)}',this.value)">${['Not checked','Eligibility check','Ready to apply','Applied','Under review','Selected','Rejected','Received'].map(s=>`<option ${x.status===s?'selected':''}>${s}</option>`).join('')}</select><p class="muted">Deadline: ${x.date||'Not confirmed'}</p></div>`).join('')||'<div class="empty">No applications added.</div>';
+}
+function setStatus(id,v){let x=data.items.find(x=>x.id===id);if(x){x.status=v;persist()}}
+function addScholarship(){const name=document.getElementById('sname').value.trim();if(!name){alert('Scholarship-এর নাম লিখো');return}data.items.push({id:'s'+Date.now(),who:document.getElementById('who').value,name,date:document.getElementById('sdate').value,url:document.getElementById('surl').value.trim(),amount:document.getElementById('samount').value.trim(),note:document.getElementById('snote').value.trim(),status:'Not checked'});['sname','sdate','surl','samount','snote'].forEach(id=>document.getElementById(id).value='');persist();alert('Scholarship যোগ হয়েছে।')}
+function exportData(){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='scholarship-duo-data.json';a.click();URL.revokeObjectURL(a.href)}
+function importData(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const v=JSON.parse(r.result);if(!Array.isArray(v.items))throw Error();data=v;persist();alert('Data import হয়েছে।')}catch(err){alert('ফাইলটি সঠিক নয়।')}};r.readAsText(f)}
+async function enableNotifications(){if(!('Notification'in window)){document.getElementById('notifyState').textContent='এই browser notification support করে না।';return}const p=await Notification.requestPermission();document.getElementById('notifyState').textContent='Notification permission: '+p}
+function testNotification(){if(!('Notification'in window)||Notification.permission!=='granted'){alert('আগে Enable Notifications চাপো।');return}new Notification('Scholarship Duo',{body:'Notification test successful.'})}
+function checkDeadlines(){if(!('Notification'in window)||Notification.permission!=='granted')return;const today=new Date();today.setHours(0,0,0,0);for(const x of data.items){if(!x.date)continue;const d=new Date(x.date+'T00:00:00');const days=Math.round((d-today)/86400000);if([7,3,1,0].includes(days)){const k='reminded-'+x.id+'-'+x.date+'-'+days;if(!sessionStorage.getItem(k)){new Notification('Scholarship deadline reminder',{body:`${x.name}: ${days===0?'আজ শেষ দিন':days+' দিন বাকি'} (${x.who})`});sessionStorage.setItem(k,'1')}}}}
+render();checkDeadlines();if('serviceWorker'in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+</script>
+</body></html>
